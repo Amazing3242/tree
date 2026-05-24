@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>决策树算法学习平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🌳 决策树学习平台</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#principle">算法原理</a></li>
+                <li><a href="#interactive">交互式演示</a></li>
+                <li><a href="#application">应用场景</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 首页 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>决策树算法</h1>
+                <p>一种直观、可解释的机器学习算法，模拟人类决策过程</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="icon">📊</div>
+                        <h3>可解释性强</h3>
+                        <p>决策逻辑清晰可见</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h3>高效快速</h3>
+                        <p>训练和预测效率高</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h3>适用广泛</h3>
+                        <p>分类与回归任务均可</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <svg width="400" height="300" viewBox="0 0 400 300">
+                    <rect x="150" y="20" width="100" height="40" rx="5" fill="#4CAF50" />
+                    <text x="200" y="45" text-anchor="middle" fill="white" font-size="14">有房产？</text>
+                    <line x1="200" y1="60" x2="100" y2="120" stroke="#333" stroke-width="2"/>
+                    <line x1="200" y1="60" x2="300" y2="120" stroke="#333" stroke-width="2"/>
+                    <text x="150" y="90" text-anchor="middle" fill="#666">是</text>
+                    <text x="250" y="90" text-anchor="middle" fill="#666">否</text>
+                    <rect x="60" y="120" width="80" height="40" rx="5" fill="#8BC34A" />
+                    <text x="100" y="145" text-anchor="middle" fill="white" font-size="12">批准贷款</text>
+                    <rect x="260" y="120" width="80" height="40" rx="5" fill="#FF9800" />
+                    <text x="300" y="145" text-anchor="middle" fill="white" font-size="12">有车？</text>
+                    <line x1="300" y1="160" x2="220" y2="220" stroke="#333" stroke-width="2"/>
+                    <line x1="300" y1="160" x2="380" y2="220" stroke="#333" stroke-width="2"/>
+                    <text x="260" y="190" text-anchor="middle" fill="#666">是</text>
+                    <text x="340" y="190" text-anchor="middle" fill="#666">否</text>
+                    <rect x="180" y="220" width="80" height="40" rx="5" fill="#8BC34A" />
+                    <text x="220" y="245" text-anchor="middle" fill="white" font-size="12">批准贷款</text>
+                    <rect x="340" y="220" width="80" height="40" rx="5" fill="#F44336" />
+                    <text x="380" y="245" text-anchor="middle" fill="white" font-size="12">拒绝贷款</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 算法原理 -->
+        <section id="principle" class="principle">
+            <h2>📚 算法原理</h2>
+            <div class="algorithm-cards">
+                <div class="algorithm-card">
+                    <h3>ID3 算法</h3>
+                    <div class="algorithm-badge">信息增益</div>
+                    <p>基于信息增益选择最优特征，优先选择取值较多的特征。</p>
+                    <div class="formula">
+                        <span class="formula-label">信息熵：</span>
+                        <span class="formula-text">H(D) = -∑p<sub>i</sub>log<sub>2</sub>p<sub>i</sub></span>
+                    </div>
+                    <div class="formula">
+                        <span class="formula-label">信息增益：</span>
+                        <span class="formula-text">IG(D,A) = H(D) - H(D|A)</span>
+                    </div>
+                </div>
+                <div class="algorithm-card">
+                    <h3>C4.5 算法</h3>
+                    <div class="algorithm-badge">信息增益比</div>
+                    <p>改进ID3，使用信息增益比解决偏向取值较多特征的问题，支持连续值和缺失值处理。</p>
+                    <div class="formula">
+                        <span class="formula-label">信息增益比：</span>
+                        <span class="formula-text">IGR = IG / H<sub>A</sub>(D)</span>
+                    </div>
+                </div>
+                <div class="algorithm-card">
+                    <h3>CART 算法</h3>
+                    <div class="algorithm-badge">基尼系数</div>
+                    <p>使用基尼系数作为分裂准则，支持分类和回归任务，生成二叉树。</p>
+                    <div class="formula">
+                        <span class="formula-label">基尼系数：</span>
+                        <span class="formula-text">Gini(D) = 1 - ∑p<sub>i</sub><sup>2</sup></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <h3>算法对比</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>算法</th>
+                            <th>特征选择标准</th>
+                            <th>支持连续值</th>
+                            <th>支持缺失值</th>
+                            <th>树结构</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ID3</td>
+                            <td>信息增益</td>
+                            <td>否</td>
+                            <td>否</td>
+                            <td>多叉树</td>
+                        </tr>
+                        <tr>
+                            <td>C4.5</td>
+                            <td>信息增益比</td>
+                            <td>是</td>
+                            <td>是</td>
+                            <td>多叉树</td>
+                        </tr>
+                        <tr>
+                            <td>CART</td>
+                            <td>基尼系数</td>
+                            <td>是</td>
+                            <td>是</td>
+                            <td>二叉树</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 交互式演示 -->
+        <section id="interactive" class="interactive">
+            <h2>🎮 交互式演示</h2>
+            <div class="demo-container">
+                <div class="input-panel">
+                    <h3>输入客户信息</h3>
+                    <div class="input-group">
+                        <label>是否有房产？</label>
+                        <select id="hasHouse">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>是否有车辆？</label>
+                        <select id="hasCar">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>年收入（万元）</label>
+                        <input type="range" id="income" min="10" max="100" value="30" step="5">
+                        <span id="incomeValue">30</span>
+                    </div>
+                    <div class="input-group">
+                        <label>信用评分</label>
+                        <select id="credit">
+                            <option value="excellent">优秀 (800+)</option>
+                            <option value="good">良好 (650-799)</option>
+                            <option value="fair">一般 (550-649)</option>
+                            <option value="poor">较差 (<550)</option>
+                        </select>
+                    </div>
+                    <button id="submitBtn" class="submit-btn">开始决策</button>
+                </div>
+                
+                <div class="tree-panel">
+                    <h3>决策过程</h3>
+                    <div id="decisionTree" class="tree-visual">
+                        <svg id="treeSvg" width="500" height="400" viewBox="0 0 500 400"></svg>
+                    </div>
+                    <div id="result" class="result"></div>
+                    <div id="decisionPath" class="decision-path"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用场景 -->
+        <section id="application" class="application">
+            <h2>💼 应用场景</h2>
+            <div class="scenario-cards">
+                <div class="scenario-card">
+                    <div class="scenario-icon">🏦</div>
+                    <h3>金融风控</h3>
+                    <p>贷款审批、信用评估、欺诈检测</p>
+                    <div class="scenario-detail">
+                        <p>银行使用决策树评估借款人的信用风险，自动化审批流程，提高效率并降低坏账率。</p>
+                    </div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🏥</div>
+                    <h3>医疗诊断</h3>
+                    <p>疾病分类、风险预测、辅助诊断</p>
+                    <div class="scenario-detail">
+                        <p>辅助医生根据患者症状和检查结果进行疾病诊断，提供快速准确的初步判断。</p>
+                    </div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🛒</div>
+                    <h3>客户管理</h3>
+                    <p>客户分群、流失预测、精准营销</p>
+                    <div class="scenario-detail">
+                        <p>分析客户行为数据，识别潜在流失客户，制定个性化营销策略。</p>
+                    </div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🏭</div>
+                    <h3>质量检测</h3>
+                    <p>产品质检、缺陷识别、工艺优化</p>
+                    <div class="scenario-detail">
+                        <p>基于生产数据构建决策树，自动识别产品缺陷，优化生产工艺。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 决策树学习平台 | 机器学习算法教学网站</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
